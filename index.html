@@ -1117,6 +1117,29 @@
       }
 
       const STORAGE_KEY = "asahiLinktreeStats";
+      const SHEET_API_URL =
+        "https://script.google.com/macros/s/AKfycbzku8fveu7wb9_IkfV3nHjk4mXdS8H_1Qs2xV8vhR3W6ArWqjT3tIxwlHqEGstltvwU/exec";
+
+      async function callSheetAPI(payload) {
+        if (SHEET_API_URL.includes("REPLACE_WITH_YOUR_SCRIPT_ID")) return null;
+
+        try {
+          const response = await fetch(SHEET_API_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+            mode: "cors",
+          });
+
+          if (!response.ok) throw new Error(response.statusText);
+          return await response.json();
+        } catch (err) {
+          console.warn("Sheet API unavailable:", err);
+          return null;
+        }
+      }
 
       function loadStats() {
         const stored = localStorage.getItem(STORAGE_KEY);
@@ -1169,10 +1192,32 @@
           stats.clickCounts.line;
       }
 
+      async function syncVisitorToSheet() {
+        const result = await callSheetAPI({ type: "visitor" });
+        if (result?.stats) {
+          Object.assign(stats, result.stats);
+          saveStats(stats);
+          updateStatsDisplay(stats);
+        }
+      }
+
+      async function syncClickToSheet(platform) {
+        const result = await callSheetAPI({ type: "click", platform });
+        if (result?.stats) {
+          Object.assign(stats, result.stats);
+          clickCounts = stats.clickCounts;
+          totalClicks = stats.totalClicks;
+          todayClicks = stats.todayClicks;
+          saveStats(stats);
+          updateStatsDisplay(stats);
+        }
+      }
+
       const stats = loadStats();
       stats.visitorCount += 1;
       saveStats(stats);
       updateStatsDisplay(stats);
+      syncVisitorToSheet();
 
       // Progress bar — ยังไม่มียอด
       document.getElementById("progressFill").style.width = "0%";
@@ -1211,6 +1256,8 @@
           totalClicks.toLocaleString();
         document.getElementById("stat2").textContent =
           todayClicks.toLocaleString();
+
+        syncClickToSheet(key);
 
         // Ripple
         const rect = el.getBoundingClientRect();
