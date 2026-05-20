@@ -1116,10 +1116,63 @@
         }, 16);
       }
 
-      // Stats เริ่มจาก 0 ทั้งหมด — อัพเดตเมื่อมีคนคลิกจริง
-      document.getElementById("stat1").textContent = "0";
-      document.getElementById("stat2").textContent = "0";
-      document.getElementById("stat3").textContent = "1"; // นับตัวเองที่เปิดหน้าเป็น visitor
+      const STORAGE_KEY = "asahiLinktreeStats";
+
+      function loadStats() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        const today = new Date().toISOString().slice(0, 10);
+        const defaultStats = {
+          clickCounts: { ig: 0, tt: 0, line: 0 },
+          totalClicks: 0,
+          todayClicks: 0,
+          visitorCount: 0,
+          todayDate: today,
+        };
+
+        if (!stored) return defaultStats;
+
+        try {
+          const data = JSON.parse(stored);
+          if (data.todayDate !== today) {
+            data.todayClicks = 0;
+            data.todayDate = today;
+          }
+          return {
+            clickCounts: { ...defaultStats.clickCounts, ...data.clickCounts },
+            totalClicks: Number(data.totalClicks) || 0,
+            todayClicks: Number(data.todayClicks) || 0,
+            visitorCount: Number(data.visitorCount) || 0,
+            todayDate: data.todayDate || today,
+          };
+        } catch (err) {
+          return defaultStats;
+        }
+      }
+
+      function saveStats(stats) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
+      }
+
+      function updateStatsDisplay(stats) {
+        document.getElementById("stat1").textContent =
+          stats.totalClicks.toLocaleString();
+        document.getElementById("stat2").textContent =
+          stats.todayClicks.toLocaleString();
+        document.getElementById("stat3").textContent =
+          stats.visitorCount.toLocaleString();
+
+        document.getElementById("clicks-ig").textContent =
+          stats.clickCounts.ig;
+        document.getElementById("clicks-tt").textContent =
+          stats.clickCounts.tt;
+        document.getElementById("clicks-line").textContent =
+          stats.clickCounts.line;
+      }
+
+      const stats = loadStats();
+      stats.visitorCount += 1;
+      saveStats(stats);
+      updateStatsDisplay(stats);
 
       // Progress bar — ยังไม่มียอด
       document.getElementById("progressFill").style.width = "0%";
@@ -1127,10 +1180,11 @@
       document.getElementById("progressAmt").textContent =
         "฿0 / ฿100,000 — ทัน 31 ส.ค.";
 
-      // ─── Click Tracking — เริ่มจาก 0 ───
-      let clickCounts = { ig: 0, tt: 0, line: 0 };
-      let totalClicks = 0,
-        todayClicks = 0;
+      // ─── Click Tracking — เริ่มจาก localStorage ───
+      let clickCounts = stats.clickCounts;
+      let totalClicks = stats.totalClicks;
+      let todayClicks = stats.todayClicks;
+      let visitorCount = stats.visitorCount;
 
       function trackClick(el, platform) {
         const key =
@@ -1142,6 +1196,11 @@
         clickCounts[key]++;
         totalClicks++;
         todayClicks++;
+
+        stats.clickCounts = clickCounts;
+        stats.totalClicks = totalClicks;
+        stats.todayClicks = todayClicks;
+        saveStats(stats);
 
         // อัพเดตยอดคลิกแต่ละลิงก์
         const clickEl = document.getElementById("clicks-" + key);
