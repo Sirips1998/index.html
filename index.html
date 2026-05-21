@@ -4,225 +4,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Asahi | ป้ายยา — Links</title>
-    <link
-      *** End Patch
-        font-family: "Outfit", sans-serif;
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--purple);
-        backdrop-filter: blur(20px);
-        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        z-index: 1000;
-        white-space: nowrap;
-        box-shadow: 0 8px 30px rgba(180, 100, 255, 0.3);
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #07050f; --surface: rgba(255, 255, 255, 0.04); --surface-hover: rgba(255, 255, 255, 0.08);
+        --border: rgba(255, 255, 255, 0.08); --border-glow: rgba(180, 100, 255, 0.4);
+        --purple: #b464ff; --purple-soft: #9b4dea; --pink: #ff64c8; --cyan: #64d4ff; --gold: #ffd664;
+        --text: #f0eaff; --text-muted: rgba(240, 234, 255, 0.5); --glow: 0 0 40px rgba(180, 100, 255, 0.2);
       }
-
-      .toast.show {
-        transform: translateX(-50%) translateY(0);
-      }
-
-      /* ─── Footer ─── */
-      .footer {
-        font-size: 11px;
-        color: rgba(255, 255, 255, 0.2);
-        font-family: "Outfit", sans-serif;
-        letter-spacing: 1px;
-        text-align: center;
-      }
-
-      /* ─── Entrance animations ─── */
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .animate-in {
-        animation: slideUp 0.6s ease both;
-      }
-
-      .delay-1 {
-        animation-delay: 0.1s;
-      }
-      .delay-2 {
-        animation-delay: 0.2s;
-      }
-      .delay-3 {
-        animation-delay: 0.3s;
-      }
-      .delay-4 {
-        animation-delay: 0.4s;
-      }
-      .delay-5 {
-        animation-delay: 0.5s;
-      }
-      .delay-6 {
-        animation-delay: 0.6s;
-      }
-      .delay-7 {
-        animation-delay: 0.7s;
-      }
-
-      /* ─── Click ripple ─── */
-      .ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(180, 100, 255, 0.3);
-        transform: scale(0);
-        animation: rippleAnim 0.6s ease-out forwards;
-        pointer-events: none;
-      }
-
-      @keyframes rippleAnim {
-        to {
-          transform: scale(4);
-          opacity: 0;
-        }
-      }
-      /* ─── TikTok Feed ─── */
-      .tiktok-feed {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-      }
-
-      .tiktok-card {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 14px 16px;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        cursor: pointer;
-        transition: all 0.25s;
-        text-decoration: none;
-        color: var(--text);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .tiktok-card:hover {
-        border-color: rgba(255, 0, 80, 0.4);
-        background: var(--surface-hover);
-        transform: translateY(-2px);
-        box-shadow: 0 0 24px rgba(255, 0, 80, 0.12);
-      }
-
-      .tiktok-thumb {
-        width: 48px;
-        height: 48px;
-        border-radius: 10px;
-        background: linear-gradient(135deg, #1a0010, #3a001a);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 22px;
-        flex-shrink: 0;
-        border: 1px solid rgba(255, 0, 80, 0.2);
-      }
-
-      .tiktok-info {
-        flex: 1;
-        min-width: 0;
-      }
-
-      .tiktok-title {
-        font-family: "Outfit", sans-serif;
-        font-size: 13px;
-        font-weight: 600;
-        line-height: 1.4;
-        margin-bottom: 4px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .tiktok-meta {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 11px;
-        color: var(--text-muted);
-      }
-
-      .tiktok-new {
-        display: inline-block;
-        background: rgba(255, 0, 80, 0.2);
-        color: #ff4060;
-        font-family: "Outfit", sans-serif;
-        font-size: 9px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        padding: 2px 6px;
-        border-radius: 99px;
-      }
-
-      .tiktok-arrow {
-        font-size: 16px;
-        opacity: 0.4;
-        flex-shrink: 0;
-        transition:
-          opacity 0.2s,
-          transform 0.2s;
-      }
-
-      .tiktok-card:hover .tiktok-arrow {
-        opacity: 1;
-        transform: translateX(3px);
-      }
-
-      .edit-hint {
-        margin-top: 10px;
-        font-size: 11px;
-        color: rgba(255, 255, 255, 0.2);
-        text-align: center;
-        font-family: "Outfit", sans-serif;
-      }
-
-      .edit-hint code {
-        background: rgba(255, 255, 255, 0.06);
-        padding: 1px 5px;
-        border-radius: 4px;
-        color: var(--purple);
-        font-size: 10px;
-      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { font-family: "Sarabun", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; position: relative; }
+      
+      #particles-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+      .bg-mesh { position: fixed; inset: 0; z-index: 0; background: radial-gradient(ellipse 60% 50% at 20% 10%, rgba(140, 60, 255, 0.18) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 80% 80%, rgba(255, 80, 180, 0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 60% 30%, rgba(80, 200, 255, 0.08) 0%, transparent 60%), #07050f; }
+      
+      .wrapper { position: relative; z-index: 10; width: 100%; max-width: 480px; padding: 60px 20px 80px; display: flex; flex-direction: column; align-items: center; gap: 0; }
+      
+      .avatar-wrap { position: relative; margin-bottom: 20px; animation: floatAvatar 4s ease-in-out infinite; }
+      @keyframes floatAvatar { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+      .avatar-ring { width: 96px; height: 96px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, var(--purple), var(--pink), var(--cyan)); box-shadow: 0 0 30px rgba(180, 100, 255, 0.5), 0 0 60px rgba(180, 100, 255, 0.2); position: relative; }
+      .avatar-inner { width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, #1a0d2e, #2a0a3a); display: flex; align-items: center; justify-content: center; font-size: 40px; overflow: hidden; }
+      .avatar-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .avatar-badge { position: absolute; bottom: 2px; right: 2px; width: 24px; height: 24px; background: linear-gradient(135deg, var(--gold), #ffaa00); border-radius: 50%; border: 2px solid var(--bg); display: flex; align-items: center; justify-content: center; font-size: 11px; }
+      
+      .profile-name { font-family: "Outfit", sans-serif; font-size: 26px; font-weight: 900; letter-spacing: -0.5px; background: linear-gradient(90deg, #fff 0%, var(--purple) 50%, var(--pink) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; margin-bottom: 4px; }
+      .profile-handle { font-family: "Outfit", sans-serif; font-size: 13px; font-weight: 400; color: var(--purple); letter-spacing: 1px; margin-bottom: 14px; opacity: 0.8; }
+      .profile-bio { font-size: 14px; color: var(--text-muted); text-align: center; line-height: 1.7; max-width: 320px; margin-bottom: 28px; }
+      
+      .mission-bar { width: 100%; background: linear-gradient(135deg, rgba(180, 100, 255, 0.15), rgba(255, 100, 200, 0.1)); border: 1px solid rgba(180, 100, 255, 0.3); border-radius: 16px; padding: 16px 20px; margin-bottom: 28px; position: relative; overflow: hidden; }
+      .mission-label { font-size: 11px; font-family: "Outfit", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--purple); margin-bottom: 8px; }
+      .mission-progress-wrap { display: flex; align-items: center; gap: 12px; }
+      .mission-progress-track { flex: 1; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 99px; overflow: hidden; }
+      .mission-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--purple), var(--pink)); border-radius: 99px; box-shadow: 0 0 10px rgba(180, 100, 255, 0.6); transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
+      .mission-pct { font-family: "Outfit", sans-serif; font-weight: 700; font-size: 13px; color: var(--purple); white-space: nowrap; }
+      .mission-amount { font-family: "Outfit", sans-serif; font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+      
+      .cta-btn { width: 100%; padding: 18px 24px; background: linear-gradient(135deg, var(--purple-soft), var(--pink)); border: none; border-radius: 16px; color: #fff; font-family: "Outfit", sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 16px; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 8px 30px rgba(155, 77, 234, 0.4); display: flex; align-items: center; justify-content: center; gap: 10px; }
+      .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(155, 77, 234, 0.6); }
+      
+      .links-section { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+      .link-card { width: 100%; display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; cursor: pointer; text-decoration: none; color: var(--text); transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
+      .link-card:hover { transform: translateY(-2px) scale(1.01); border-color: var(--border-glow); background: var(--surface-hover); box-shadow: var(--glow); }
+      .link-icon { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; z-index: 1; }
+      .link-info { flex: 1; z-index: 1; }
+      .link-title { font-family: "Outfit", sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+      .link-sub { font-size: 12px; color: var(--text-muted); }
+      .link-stats { font-family: "Outfit", sans-serif; font-size: 12px; color: var(--text-muted); text-align: right; z-index: 1; }
+      .link-clicks { font-weight: 700; font-size: 14px; }
+      
+      .card-ig .link-icon { background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7); }
+      .card-tt .link-icon { background: linear-gradient(135deg, #010101, #ff0050); }
+      .card-line .link-icon { background: linear-gradient(135deg, #00c300, #00c300); }
+      
+      .featured-section { width: 100%; margin-bottom: 28px; }
+      .section-label { font-family: "Outfit", sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+      .section-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+      .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .featured-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; cursor: pointer; transition: all 0.25s; overflow: hidden; }
+      .featured-card:hover { border-color: var(--border-glow); transform: translateY(-2px); box-shadow: var(--glow); }
+      .featured-tag { display: inline-block; font-family: "Outfit", sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; padding: 3px 8px; border-radius: 99px; margin-bottom: 8px; }
+      .tag-motion { background: rgba(180, 100, 255, 0.2); color: var(--purple); }
+      .tag-work { background: rgba(255, 214, 100, 0.2); color: var(--gold); }
+      .featured-title { font-family: "Outfit", sans-serif; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+      .featured-meta { font-size: 11px; color: var(--text-muted); }
+      
+      .stats-row { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 28px; }
+      .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 12px; text-align: center; }
+      .stat-num { font-family: "Outfit", sans-serif; font-size: 22px; font-weight: 900; background: linear-gradient(135deg, #fff, var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; }
+      .stat-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+      
+      .tiktok-feed { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+      .tiktok-card { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; cursor: pointer; text-decoration: none; color: var(--text); overflow: hidden; }
+      .tiktok-card:hover { border-color: rgba(255, 0, 80, 0.4); background: var(--surface-hover); transform: translateY(-2px); box-shadow: 0 0 24px rgba(255, 0, 80, 0.12); }
+      .tiktok-thumb { width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(135deg, #1a0010, #3a001a); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+      .tiktok-info { flex: 1; min-width: 0; }
+      .tiktok-title { font-family: "Outfit", sans-serif; font-size: 13px; font-weight: 600; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .tiktok-meta { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--text-muted); }
+      .tiktok-new { background: rgba(255, 0, 80, 0.2); color: #ff4060; padding: 2px 6px; border-radius: 99px; font-weight: 700; }
+      
+      .share-row { width: 100%; display: flex; gap: 10px; margin-bottom: 32px; }
+      .share-btn { flex: 1; padding: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; color: var(--text-muted); font-family: "Outfit", sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; display: flex; justify-content: center; align-items: center; gap: 8px; }
+      .share-btn:hover { border-color: var(--border-glow); color: var(--text); background: var(--surface-hover); }
+      
+      .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(80px); background: rgba(20, 10, 40, 0.95); border: 1px solid var(--purple); border-radius: 12px; padding: 12px 20px; font-family: "Outfit", sans-serif; font-size: 14px; font-weight: 600; color: var(--purple); z-index: 1000; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 8px 30px rgba(180, 100, 255, 0.3); }
+      .toast.show { transform: translateX(-50%) translateY(0); }
+      .footer { font-size: 11px; color: rgba(255, 255, 255, 0.2); font-family: "Outfit", sans-serif; letter-spacing: 1px; text-align: center; }
+      
+      .ripple { position: absolute; border-radius: 50%; background: rgba(180, 100, 255, 0.3); transform: scale(0); animation: rippleAnim 0.6s ease-out forwards; pointer-events: none; }
+      @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
+      
+      /* Entrance animations */
+      @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      .animate-in { animation: slideUp 0.6s ease both; }
+      .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
+      .delay-4 { animation-delay: 0.4s; } .delay-5 { animation-delay: 0.5s; } .delay-6 { animation-delay: 0.6s; }
+      .delay-7 { animation-delay: 0.7s; }
     </style>
   </head>
   <body>
     <canvas id="particles-canvas"></canvas>
     <div class="bg-mesh"></div>
-
     <div class="wrapper">
-      <!-- Avatar -->
       <div class="avatar-wrap animate-in">
         <div class="avatar-ring">
           <div class="avatar-inner">
-            <img
-              src="https://scontent.fbkk7-3.fna.fbcdn.net/v/t39.30808-6/695222335_3441836862644000_762696479628546909_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=EQqHiHsHObUQ7kNvwHKEIih&_nc_oc=AdoNf-R4zyYEW26Yj0Lw2-i1gr5B2vOFwCIDs4uE1qcN3S5ahiyKwPjzaaBYknD2aMk&_nc_zt=23&_nc_ht=scontent.fbkk7-3.fna&_nc_gid=38YrQyyYzrkXieMgZLH5jQ&_nc_ss=7b2a8&oh=00_Af4U5YljCCgELT53Yo9RH0jLu1CL6W48pkFnarXOjMZCQg&oe=6A133682"
-              alt="Profile photo"
-            />
+            <img src="https://scontent.fbkk7-3.fna.fbcdn.net/v/t39.30808-6/695222335_3441836862644000_762696479628546909_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=EQqHiHsHObUQ7kNvwHKEIih&_nc_oc=AdoNf-R4zyYEW26Yj0Lw2-i1gr5B2vOFwCIDs4uE1qcN3S5ahiyKwPjzaaBYknD2aMk&_nc_zt=23&_nc_ht=scontent.fbkk7-3.fna&_nc_gid=38YrQyyYzrkXieMgZLH5jQ&_nc_ss=7b2a8&oh=00_Af4U5YljCCgELT53Yo9RH0jLu1CL6W48pkFnarXOjMZCQg&oe=6A133682" alt="Profile photo" />
           </div>
         </div>
         <div class="avatar-badge">✨</div>
       </div>
-
-      <!-- Name & Bio -->
       <div class="profile-name animate-in delay-1">Asahi | ป้ายยา</div>
       <div class="profile-handle animate-in delay-1">@asahi.paiya</div>
       <div class="profile-bio animate-in delay-2">
         🚀 ภารกิจหา 1 แสน ทัน 31 ส.ค.💸<br />
         🎨 Motion Design | 👇พิกัด & จ้างงานทัก DM
       </div>
-
-      <!-- Mission Progress -->
+      
       <div class="mission-bar animate-in delay-2" style="width: 100%">
         <div class="mission-label">🎯 Mission Progress</div>
         <div class="mission-progress-wrap">
@@ -231,504 +129,188 @@
           </div>
           <div class="mission-pct" id="progressPct">0%</div>
         </div>
-        <div class="mission-amount" id="progressAmt">
-          ฿0 / ฿100,000 — ทัน 31 ส.ค.
-        </div>
+        <div class="mission-amount" id="progressAmt">฿0 / ฿100,000 — ทัน 31 ส.ค.</div>
       </div>
-
-      <!-- CTA Button -->
+      
       <div style="width: 100%" class="animate-in delay-3">
         <button class="cta-btn" onclick="handleCTA(this)">
-          <div class="cta-pulse"></div>
           💼 จ้างฉันทำ Motion Design
-          <span style="margin-left: auto; opacity: 0.7; font-size: 18px"
-            >→</span
-          >
+          <span style="margin-left: auto; opacity: 0.7; font-size: 18px">→</span>
         </button>
       </div>
-
-      <!-- Stats Row -->
+      
       <div class="stats-row animate-in delay-3">
-        <div class="stat-card">
-          <span class="stat-num" id="stat1">0</span>
-          <div class="stat-label">👆 คลิกทั้งหมด</div>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num" id="stat2">0</span>
-          <div class="stat-label">🔥 วันนี้</div>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num" id="stat3">0</span>
-          <div class="stat-label">👥 ผู้เยี่ยมชม</div>
-        </div>
+        <div class="stat-card"><span class="stat-num" id="stat1">0</span><div class="stat-label">👆 คลิกทั้งหมด</div></div>
+        <div class="stat-card"><span class="stat-num" id="stat2">0</span><div class="stat-label">🔥 วันนี้</div></div>
+        <div class="stat-card"><span class="stat-num" id="stat3">0</span><div class="stat-label">👥 ผู้เยี่ยมชม</div></div>
       </div>
-
-      <!-- Social Links -->
+      
       <div class="links-section animate-in delay-4">
-        <a
-          href="https://instagram.com/asahi_kyouya"
-          target="_blank"
-          class="link-card card-ig"
-          onclick="trackClick(this, 'Instagram')"
-        >
+        <a href="https://instagram.com/asahi_kyouya" target="_blank" class="link-card card-ig" onclick="trackClick(this, 'Instagram', event)">
           <div class="link-icon">📸</div>
           <div class="link-info">
             <div class="link-title">Instagram</div>
             <div class="link-sub">@asahi_kyouya</div>
           </div>
-          <div class="link-stats">
-            <div class="link-clicks" id="clicks-ig">0</div>
-            <div>คลิก</div>
-          </div>
+          <div class="link-stats"><div class="link-clicks" id="clicks-ig">0</div><div>คลิก</div></div>
         </a>
-
-        <a
-          href="https://tiktok.com/@asahi.paiya"
-          target="_blank"
-          class="link-card card-tt"
-          onclick="trackClick(this, 'TikTok')"
-        >
+        <a href="https://tiktok.com/@asahi.paiya" target="_blank" class="link-card card-tt" onclick="trackClick(this, 'TikTok', event)">
           <div class="link-icon">🎵</div>
           <div class="link-info">
             <div class="link-title">TikTok</div>
             <div class="link-sub">@asahi.paiya</div>
           </div>
-          <div class="link-stats">
-            <div class="link-clicks" id="clicks-tt">0</div>
-            <div>คลิก</div>
-          </div>
+          <div class="link-stats"><div class="link-clicks" id="clicks-tt">0</div><div>คลิก</div></div>
         </a>
-
-        <a
-          href="https://line.me/ti/p/~@loogmoorung"
-          target="_blank"
-          class="link-card card-line"
-          onclick="trackClick(this, 'LINE')"
-        >
+        <a href="https://line.me/ti/p/~@loogmoorung" target="_blank" class="link-card card-line" onclick="trackClick(this, 'LINE', event)">
           <div class="link-icon">💬</div>
           <div class="link-info">
             <div class="link-title">LINE Official</div>
             <div class="link-sub">@loogmoorung</div>
           </div>
-          <div class="link-stats">
-            <div class="link-clicks" id="clicks-line">0</div>
-            <div>คลิก</div>
-          </div>
+          <div class="link-stats"><div class="link-clicks" id="clicks-line">0</div><div>คลิก</div></div>
         </a>
       </div>
-
-      <!-- Featured: Motion & Portfolio (fixed) -->
+      
       <div class="featured-section animate-in delay-5">
         <div class="section-label">📌 พิกัดจ้างงาน</div>
         <div class="featured-grid">
-          <div
-            class="featured-card"
-            onclick="
-              openLink(
-                'https://fastwork.co/user/asahi_kyouya/motion-graphics-37151382?source=seller-center_my-service_share-link/',
-              )
-            "
-          >
+          <div class="featured-card" onclick="openLink('https://fastwork.co/user/asahi_kyouya/motion-graphics-37151382')">
             <div class="featured-tag tag-motion">Motion 🎬</div>
             <div class="featured-title">รับทำ Motion Graphics — Fastwork</div>
             <div class="featured-meta">💼 จ้างงานได้เลย</div>
           </div>
-          <div
-            class="featured-card"
-            onclick="openLink('https://canva.link/34v0r3elt5royu0')"
-          >
+          <div class="featured-card" onclick="openLink('https://canva.link/34v0r3elt5royu0')">
             <div class="featured-tag tag-work">Portfolio 🗂</div>
             <div class="featured-title">ดูผลงานทั้งหมด — Canva</div>
             <div class="featured-meta">✨ รวมผลงานล่าสุด</div>
           </div>
         </div>
       </div>
-
-      <!-- TikTok Feed (อัพเดตเองง่ายๆ) -->
+      
       <div class="featured-section animate-in delay-5">
         <div class="section-label">🎵 TikTok ล่าสุด</div>
         <div id="tiktok-feed" class="tiktok-feed"></div>
-        <div class="edit-hint">
-          ✏️ อัพเดตคลิปใหม่ → แก้ที่ <code>TIKTOK_POSTS</code> ในโค้ด
-        </div>
       </div>
-
-      <!-- Share Buttons -->
+      
       <div class="share-row animate-in delay-6">
-        <button class="share-btn" onclick="copyLink()">
-          <span>🔗</span> คัดลอกลิงก์
-        </button>
-        <button class="share-btn" onclick="shareProfile()">
-          <span>📤</span> แชร์โปรไฟล์
-        </button>
+        <button class="share-btn" onclick="copyLink()"><span>🔗</span> คัดลอกลิงก์</button>
+        <button class="share-btn" onclick="shareProfile()"><span>📤</span> แชร์โปรไฟล์</button>
       </div>
-
-      <div class="footer animate-in delay-7">
-        Made with 💜 · asahi.paiya © 2025
-      </div>
+      
+      <div class="footer animate-in delay-7">Made with 💜 · asahi.paiya © 2026</div>
     </div>
-
-    <!-- Toast -->
+    
     <div class="toast" id="toast"></div>
 
     <script>
-      // ─── Particle System ───
+      // ระบบ Particle ฉากหลัง
       const canvas = document.getElementById("particles-canvas");
       const ctx = canvas.getContext("2d");
       let particles = [];
-      let mouse = { x: null, y: null };
-
-      function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      resize();
-      window.addEventListener("resize", resize);
-
-      window.addEventListener("mousemove", (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-      });
-
+      function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+      resize(); window.addEventListener("resize", resize);
       class Particle {
-        constructor() {
-          this.reset();
-        }
+        constructor() { this.reset(); }
         reset() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.size = Math.random() * 2 + 0.5;
-          this.speedX = (Math.random() - 0.5) * 0.4;
-          this.speedY = (Math.random() - 0.5) * 0.4;
-          this.life = Math.random();
-          this.maxLife = Math.random() * 0.5 + 0.3;
-          const colors = ["#b464ff", "#ff64c8", "#64d4ff", "#ffd664"];
-          this.color = colors[Math.floor(Math.random() * colors.length)];
+          this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 0.5; this.speedX = (Math.random() - 0.5) * 0.4;
+          this.speedY = (Math.random() - 0.5) * 0.4; this.life = Math.random(); this.maxLife = Math.random() * 0.5 + 0.3;
+          const colors = ["#b464ff", "#ff64c8", "#64d4ff", "#ffd664"]; this.color = colors[Math.floor(Math.random() * colors.length)];
         }
         update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          this.life += 0.003;
-          if (
-            this.life > this.maxLife ||
-            this.x < 0 ||
-            this.x > canvas.width ||
-            this.y < 0 ||
-            this.y > canvas.height
-          )
-            this.reset();
+          this.x += this.speedX; this.y += this.speedY; this.life += 0.003;
+          if (this.life > this.maxLife || this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
         }
         draw() {
           const alpha = Math.sin((this.life / this.maxLife) * Math.PI) * 0.6;
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle =
-            this.color +
-            Math.round(alpha * 255)
-              .toString(16)
-              .padStart(2, "0");
-          ctx.fill();
+          ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = this.color + Math.round(alpha * 255).toString(16).padStart(2, "0"); ctx.fill();
         }
       }
-
       for (let i = 0; i < 80; i++) particles.push(new Particle());
-
       function animateParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach((p) => {
-          p.update();
-          p.draw();
-        });
-        requestAnimationFrame(animateParticles);
+        particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animateParticles);
       }
       animateParticles();
 
-      // ─── Stats Counter Animation ───
-      function animateCount(el, target, suffix = "") {
-        let current = 0;
-        const step = target / 60;
-        const timer = setInterval(() => {
-          current = Math.min(current + step, target);
-          el.textContent = Math.floor(current).toLocaleString() + suffix;
-          if (current >= target) clearInterval(timer);
-        }, 16);
-      }
+      // ==============================================================================
+      // 🚀 ฝัง URL Google Web App ให้เรียบร้อยแล้ว ไม่ต้องหาแล้ว!
+      const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbyDZ8bU5QimwjfMeu5RWpQkegylh57IJuGvQ8BnUwYgMZTkdEwTsKwlojMgv7GHcAD2_w/exec"; 
+      // ==============================================================================
 
-      const STORAGE_KEY = "asahiLinktreeStats";
-      const SHEET_API_URL =
-        "https://script.google.com/macros/s/AKfycbxwvoGoviEm5f9ZPxa3oVzjxYX3Mvtw8P0khkDiBWZVWTxSZPrndpdQrsifNrZpbzHJ/exec";
-
-      async function callSheetAPI(payload) {
-        if (SHEET_API_URL.includes("REPLACE_WITH_YOUR_SCRIPT_ID")) return null;
-
+      // ฟังก์ชันคุยกับ Google Sheets
+      async function callSheetAPI(type, platform = "") {
         try {
-          const response = await fetch(SHEET_API_URL, {
+          const res = await fetch(SHEET_API_URL, {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload),
-            mode: "cors",
+            body: JSON.stringify({ type: type, platform: platform }),
           });
-
-          if (!response.ok) throw new Error(response.statusText);
-          return await response.json();
-        } catch (err) {
-          console.warn("Sheet API unavailable:", err);
-          return null;
-        }
-      }
-
-      function loadStats() {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        const today = new Date().toISOString().slice(0, 10);
-        const defaultStats = {
-          clickCounts: { ig: 0, tt: 0, line: 0 },
-          totalClicks: 0,
-          todayClicks: 0,
-          visitorCount: 0,
-          todayDate: today,
-        };
-
-        if (!stored) return defaultStats;
-
-        try {
-          const data = JSON.parse(stored);
-          if (data.todayDate !== today) {
-            data.todayClicks = 0;
-            data.todayDate = today;
+          const data = await res.json();
+          if (data.success && data.stats) {
+            // อัปเดตตัวเลขหน้าเว็บแบบเรียลไทม์
+            document.getElementById("stat1").textContent = (data.stats.totalClicks || 0).toLocaleString();
+            document.getElementById("stat2").textContent = (data.stats.todayClicks || 0).toLocaleString();
+            document.getElementById("stat3").textContent = (data.stats.visitorCount || 0).toLocaleString();
+            if (document.getElementById("clicks-ig")) document.getElementById("clicks-ig").textContent = (data.stats.ig || 0).toLocaleString();
+            if (document.getElementById("clicks-tt")) document.getElementById("clicks-tt").textContent = (data.stats.tt || 0).toLocaleString();
+            if (document.getElementById("clicks-line")) document.getElementById("clicks-line").textContent = (data.stats.line || 0).toLocaleString();
           }
-          return {
-            clickCounts: { ...defaultStats.clickCounts, ...data.clickCounts },
-            totalClicks: Number(data.totalClicks) || 0,
-            todayClicks: Number(data.todayClicks) || 0,
-            visitorCount: Number(data.visitorCount) || 0,
-            todayDate: data.todayDate || today,
-          };
-        } catch (err) {
-          return defaultStats;
-        }
+        } catch (error) { console.error("Error fetching Google Sheets:", error); }
       }
 
-      function saveStats(stats) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
+      // โหลดหน้าเว็บปุ๊บ ยิงส่ง Visitor ปั๊บ
+      window.addEventListener("DOMContentLoaded", () => {
+        callSheetAPI("visitor");
+        renderTikTokFeed();
+      });
+
+      // เวลากดปุ่ม ยิง Click เข้าชีต
+      function trackClick(el, platform, e) {
+        const key = platform === "Instagram" ? "ig" : platform === "TikTok" ? "tt" : "line";
+        callSheetAPI("click", key);
+        addRipple(el, e);
       }
 
-      function updateStatsDisplay(stats) {
-        document.getElementById("stat1").textContent =
-          stats.totalClicks.toLocaleString();
-        document.getElementById("stat2").textContent =
-          stats.todayClicks.toLocaleString();
-        document.getElementById("stat3").textContent =
-          stats.visitorCount.toLocaleString();
-
-        document.getElementById("clicks-ig").textContent =
-          stats.clickCounts.ig;
-        document.getElementById("clicks-tt").textContent =
-          stats.clickCounts.tt;
-        document.getElementById("clicks-line").textContent =
-          stats.clickCounts.line;
-      }
-
-      async function syncVisitorToSheet() {
-        const result = await callSheetAPI({ type: "visitor" });
-        if (result?.stats) {
-          Object.assign(stats, result.stats);
-          saveStats(stats);
-          updateStatsDisplay(stats);
-        }
-      }
-
-      async function syncClickToSheet(platform) {
-        const result = await callSheetAPI({ type: "click", platform });
-        if (result?.stats) {
-          Object.assign(stats, result.stats);
-          clickCounts = stats.clickCounts;
-          totalClicks = stats.totalClicks;
-          todayClicks = stats.todayClicks;
-          saveStats(stats);
-          updateStatsDisplay(stats);
-        }
-      }
-
-      const stats = loadStats();
-      stats.visitorCount += 1;
-      saveStats(stats);
-      updateStatsDisplay(stats);
-      syncVisitorToSheet();
-
-      // Progress bar — ยังไม่มียอด
-      document.getElementById("progressFill").style.width = "0%";
-      document.getElementById("progressPct").textContent = "0%";
-      document.getElementById("progressAmt").textContent =
-        "฿0 / ฿100,000 — ทัน 31 ส.ค.";
-
-      // ─── Click Tracking — เริ่มจาก localStorage ───
-      let clickCounts = stats.clickCounts;
-      let totalClicks = stats.totalClicks;
-      let todayClicks = stats.todayClicks;
-      let visitorCount = stats.visitorCount;
-
-      function trackClick(el, platform) {
-        const key =
-          platform === "Instagram"
-            ? "ig"
-            : platform === "TikTok"
-              ? "tt"
-              : "line";
-        clickCounts[key]++;
-        totalClicks++;
-        todayClicks++;
-
-        stats.clickCounts = clickCounts;
-        stats.totalClicks = totalClicks;
-        stats.todayClicks = todayClicks;
-        saveStats(stats);
-
-        // อัพเดตยอดคลิกแต่ละลิงก์
-        const clickEl = document.getElementById("clicks-" + key);
-        if (clickEl) clickEl.textContent = clickCounts[key];
-
-        // อัพเดต stats
-        document.getElementById("stat1").textContent =
-          totalClicks.toLocaleString();
-        document.getElementById("stat2").textContent =
-          todayClicks.toLocaleString();
-
-        syncClickToSheet(key);
-
-        // Ripple
-        const rect = el.getBoundingClientRect();
-        const ripple = document.createElement("div");
-        ripple.className = "ripple";
-        const size = Math.max(rect.width, rect.height);
-        ripple.style.cssText = `width:${size}px;height:${size}px;left:${(rect.width - size) / 2}px;top:${(rect.height - size) / 2}px`;
-        el.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 600);
-      }
-
-      // ═══════════════════════════════════════════════
-      // 🎵 อัพเดตคลิป TikTok ใหม่ที่นี่ที่เดียวเลย!
-      // คัดลอก URL จาก TikTok แล้ววางใน url:
-      // emoji คือรูปแทน thumbnail เลือกที่ชอบได้
-      // ═══════════════════════════════════════════════
+      // ข้อมูล TikTok (แก้ตรงนี้ถ้ามีคลิปใหม่)
       const TIKTOK_POSTS = [
-        {
-          title: "เพิ่มคลิปล่าสุดของคุณที่นี่",
-          url: "https://tiktok.com/@asahi.paiya",
-          date: "วันนี้",
-          views: "-",
-          emoji: "🎬",
-          isNew: true,
-        },
-        // ── เพิ่มคลิปใหม่ด้านบน คลิปเก่าด้านล่าง ──
-        // {
-        //   title: "ชื่อคลิป",
-        //   url: "https://www.tiktok.com/@asahi.paiya/video/xxxxxxxxxx",
-        //   date: "2 วันที่แล้ว",
-        //   views: "1.2k",
-        //   emoji: "✨",
-        //   isNew: false
-        // },
+        { title: "เพิ่มคลิปล่าสุดของคุณที่นี่", url: "https://tiktok.com/@asahi.paiya", date: "วันนี้", views: "-", emoji: "🎬", isNew: true }
       ];
 
       function renderTikTokFeed() {
         const feed = document.getElementById("tiktok-feed");
-        if (!TIKTOK_POSTS.length) {
-          feed.innerHTML =
-            '<div style="text-align:center;color:var(--text-muted);font-size:13px;padding:20px">ยังไม่มีคลิป — เพิ่มใน TIKTOK_POSTS ได้เลย</div>';
-          return;
-        }
-
-        feed.innerHTML = TIKTOK_POSTS.map(
-          (post) => `
-    <a href="${post.url}" target="_blank" class="tiktok-card" onclick="addRipple(this, event)">
-      <div class="tiktok-thumb">${post.emoji}</div>
-      <div class="tiktok-info">
-        <div class="tiktok-title">${post.title}</div>
-        <div class="tiktok-meta">
-          ${post.isNew ? '<span class="tiktok-new">NEW</span>' : ""}
-          <span>📅 ${post.date}</span>
-          ${post.views !== "-" ? `<span>👁 ${post.views}</span>` : ""}
-        </div>
-      </div>
-      <div class="tiktok-arrow">›</div>
-    </a>
-  `,
-        ).join("");
+        if (!TIKTOK_POSTS.length) { feed.innerHTML = '<div style="text-align:center;color:var(--text-muted);font-size:13px;padding:20px">ไม่มีคลิป</div>'; return; }
+        feed.innerHTML = TIKTOK_POSTS.map(post => `
+          <a href="${post.url}" target="_blank" class="tiktok-card" onclick="addRipple(this, event)">
+            <div class="tiktok-thumb">${post.emoji}</div>
+            <div class="tiktok-info">
+              <div class="tiktok-title">${post.title}</div>
+              <div class="tiktok-meta">${post.isNew ? '<span class="tiktok-new">NEW</span>' : ""} <span>📅 ${post.date}</span> ${post.views !== "-" ? `<span>👁 ${post.views}</span>` : ""}</div>
+            </div>
+          </a>`).join("");
       }
 
+      // เอฟเฟกต์เวลากดปุ่ม
       function addRipple(el, e) {
-        const rect = el.getBoundingClientRect();
-        const ripple = document.createElement("div");
-        ripple.className = "ripple";
+        if (!e) return;
+        const rect = el.getBoundingClientRect(); const ripple = document.createElement("div"); ripple.className = "ripple";
         const size = Math.max(rect.width, rect.height);
-        ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size / 2}px;top:${e.clientY - rect.top - size / 2}px;background:rgba(255,0,80,0.2)`;
-        el.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 600);
+        ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size/2}px;top:${e.clientY - rect.top - size/2}px`;
+        el.appendChild(ripple); setTimeout(() => ripple.remove(), 600);
       }
 
-      // ─── Open Link (Featured Cards) ───
-      function openLink(url) {
-        window.open(url, "_blank");
-      }
-
-      // ─── Toast ───
+      function openLink(url) { window.open(url, "_blank"); }
+      
       let toastTimer;
       function showToast(msg) {
-        const t = document.getElementById("toast");
-        t.textContent = msg;
-        t.classList.add("show");
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => t.classList.remove("show"), 2500);
+        const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show");
+        clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 2500);
       }
-
-      // ─── Copy Link ───
-      function copyLink() {
-        const url = window.location.href;
-        navigator.clipboard
-          .writeText(url)
-          .then(() => {
-            showToast("✅ คัดลอกลิงก์แล้ว!");
-          })
-          .catch(() => {
-            showToast("📋 asahi.paiya/links");
-          });
-      }
-
-      // ─── Share Profile ───
-      function shareProfile() {
-        if (navigator.share) {
-          navigator.share({
-            title: "Asahi | ป้ายยา",
-            text: "🎨 Motion Design | ภารกิจหา 1 แสน",
-            url: window.location.href,
-          });
-        } else {
-          showToast("📤 แชร์: asahi.paiya/links");
-        }
-      }
-
-      // ─── CTA Button ───
-      function handleCTA(btn) {
-        showToast("💼 เปิด LINE DM → @loogmoorung");
-        setTimeout(() => {
-          window.open("https://line.me/ti/p/~@loogmoorung", "_blank");
-        }, 300);
-      }
-
-      // ─── Ripple on CTA ───
-      document
-        .querySelector(".cta-btn")
-        .addEventListener("click", function (e) {
-          const rect = this.getBoundingClientRect();
-          const ripple = document.createElement("div");
-          ripple.className = "ripple";
-          const size = Math.max(rect.width, rect.height);
-          ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size / 2}px;top:${e.clientY - rect.top - size / 2}px;background:rgba(255,255,255,0.2)`;
-          this.appendChild(ripple);
-          setTimeout(() => ripple.remove(), 600);
-        });
+      
+      function copyLink() { navigator.clipboard.writeText(window.location.href).then(() => showToast("✅ คัดลอกลิงก์แล้ว!")).catch(() => showToast("📋 asahi.paiya/links")); }
+      function shareProfile() { if (navigator.share) { navigator.share({ title: "Asahi | ป้ายยา", text: "🎨 Motion Design", url: window.location.href }); } else { showToast("📤 แชร์: asahi.paiya/links"); } }
+      function handleCTA(btn) { showToast("💼 เปิด LINE DM → @loogmoorung"); addRipple(btn, event); setTimeout(() => { window.open("https://line.me/ti/p/~@loogmoorung", "_blank"); }, 300); }
     </script>
   </body>
 </html>

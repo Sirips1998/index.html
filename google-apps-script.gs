@@ -1,4 +1,11 @@
+// ล็อกเป้าหมายไปที่ Google Sheets ของพี่ตรงๆ (ดึง ID มาจากลิงก์)
+const SHEET_ID = "1mf1jgGKTrUWn8G4IYqHKnnOIRQxDs0va4-EHmV7JD0I";
 const STATS_SHEET_NAME = "Stats";
+
+// กันเหนียว! เอาไว้รับมือปัญหา CORS เวลาหน้าบ้าน (GitHub) ยิงข้อมูลมาหาหลังบ้าน (Google)
+function doOptions(e) {
+  return ContentService.createTextOutput("OK").setMimeType(ContentService.MimeType.TEXT);
+}
 
 function doGet() {
   return jsonResponse(getStats());
@@ -12,11 +19,13 @@ function doPost(e) {
     const stats = getStats();
     const today = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "yyyy-MM-dd");
 
+    // รีเซ็ตยอดคลิกรายวันถ้าข้ามวันใหม่
     if (stats.todayDate !== today) {
       stats.todayDate = today;
       stats.todayClicks = 0;
     }
 
+    // นับยอดคลิกหรือยอดคนเข้า
     if (type === "click") {
       stats.totalClicks = Number(stats.totalClicks || 0) + 1;
       stats.todayClicks = Number(stats.todayClicks || 0) + 1;
@@ -28,12 +37,13 @@ function doPost(e) {
     }
 
     saveStats(stats);
-    return jsonResponse({ success: true, stats });
+    return jsonResponse({ success: true, stats: stats });
   } catch (err) {
     return jsonResponse({ success: false, error: err.message });
   }
 }
 
+// ฟังก์ชันดึงสถิติ
 function getStats() {
   const sheet = getStatsSheet();
   const values = sheet.getRange(1, 1, 8, 2).getValues();
@@ -53,6 +63,7 @@ function getStats() {
   };
 }
 
+// ฟังก์ชันบันทึกสถิติ
 function saveStats(stats) {
   const sheet = getStatsSheet();
   const rows = [
@@ -67,8 +78,9 @@ function saveStats(stats) {
   sheet.getRange(1, 1, rows.length, 2).setValues(rows);
 }
 
+// ฟังก์ชันเชื่อมต่อโกดัง (ใช้ openById แม่นยำ 100%)
 function getStatsSheet() {
-  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  const spreadsheet = SpreadsheetApp.openById(SHEET_ID);
   let sheet = spreadsheet.getSheetByName(STATS_SHEET_NAME);
   if (!sheet) {
     sheet = spreadsheet.insertSheet(STATS_SHEET_NAME);
@@ -76,6 +88,7 @@ function getStatsSheet() {
   return sheet;
 }
 
+// ฟังก์ชันแพ็กของส่งกลับไปหน้าบ้าน
 function jsonResponse(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
 }
